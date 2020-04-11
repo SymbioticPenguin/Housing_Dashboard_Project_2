@@ -1,0 +1,20 @@
+.jumbotron {
+    min-height: 50px;
+    padding: 5px;
+    margin: 5px;
+    font-weight: 800;
+    color: rgb(255, 0, 85);
+  }
+  
+  .well {
+    background:white;
+    outline: rgb(255, 0, 85);
+  }
+  
+  .purple {
+    background: rebeccapurple;
+  }
+  
+  .red {
+    background: indianred;
+  }
