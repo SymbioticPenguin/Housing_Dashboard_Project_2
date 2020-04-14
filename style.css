@@ -161,3 +161,7 @@
   bottom: 0;
   right: 0;
 }
+#map {
+  width: 600px;
+  height: 400px;
+}
