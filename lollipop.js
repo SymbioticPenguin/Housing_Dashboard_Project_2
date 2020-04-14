@@ -4,7 +4,7 @@ var margin = {top: 10, right: 30, bottom: 90, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("lollipop")
+var svg = d3.select("#lollipop")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -12,13 +12,20 @@ var svg = d3.select("lollipop")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+svg.append("rect")
+.attr("width","100%")
+.attr("height","100%")
+.attr("fill","white");
+     
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum_header.csv", function(data) {
+d3.csv("Resources/Zillow_SD_data.csv", function(data) {
+
+
 
 // X axis
 var x = d3.scaleBand()
-  .range([ 0, width ])
-  .domain(data.map(function(d) { return d.Country; }))
+  .range([ 0, width+40 ])
+  .domain(data.map(function(d) { return d.Year;}))
   .padding(1);
 svg.append("g")
   .attr("transform", "translate(0," + height + ")")
@@ -29,7 +36,7 @@ svg.append("g")
 
 // Add Y axis
 var y = d3.scaleLinear()
-  .domain([0, 13000])
+  .domain([0, 1000000])
   .range([ height, 0]);
 svg.append("g")
   .call(d3.axisLeft(y));
@@ -39,9 +46,9 @@ svg.selectAll("myline")
   .data(data)
   .enter()
   .append("line")
-    .attr("x1", function(d) { return x(d.Country); })
-    .attr("x2", function(d) { return x(d.Country); })
-    .attr("y1", function(d) { return y(d.Value); })
+    .attr("x1", function(d) { return x(d.Year); })
+    .attr("x2", function(d) { return x(d.Year); })
+    .attr("y1", function(d) { return y(d["San_Diego"]); })
     .attr("y2", y(0))
     .attr("stroke", "grey")
 
@@ -50,8 +57,8 @@ svg.selectAll("mycircle")
   .data(data)
   .enter()
   .append("circle")
-    .attr("cx", function(d) { return x(d.Country); })
-    .attr("cy", function(d) { return y(d.Value); })
+    .attr("cx", function(d) { return x(d.Year); })
+    .attr("cy", function(d) { return y(d["San_Diego"]); })
     .attr("r", "4")
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
