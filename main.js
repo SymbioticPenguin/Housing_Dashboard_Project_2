@@ -1,39 +1,34 @@
 (function () {
 
-    var bv = new Bideo();
-    bv.init({
-      // Video element
-      videoEl: document.querySelector('#background_video'),
-  
-      // Container element
-      container: document.querySelector('body'),
-  
-      // Resize
-      resize: true,
-  
-      // autoplay: false,
-  
-      isMobile: window.matchMedia('(max-width: 768px)').matches,
-  
-      playButton: document.querySelector('#play'),
-      pauseButton: document.querySelector('#pause'),
-  
-      // Array of objects containing the src and type
-      // of different video formats to add
-      src: [
-        {
-          src: 'LaJolla.mp4',
-          type: 'video/mp4'
-        },
-        {
-          src: 'LaJolla.mp4',
-          type: 'video/webm;codecs="vp8, vorbis"'
-        }
-      ],
-  
-      // What to do once video loads (initial frame)
-      onLoad: function () {
-        document.querySelector('#video_cover').style.display = 'none';
+  var bv = new Bideo();
+  bv.init({
+    videoEl: document.querySelector('#background_video'),
+
+    container: document.querySelector('body'),
+
+    resize: true,
+
+    // autoplay: false,
+
+    isMobile: window.matchMedia('(max-width: 768px)').matches,
+
+    playButton: document.querySelector('#play'),
+    pauseButton: document.querySelector('#pause'),
+
+    
+    src: [
+      {
+        src: 'LaJolla.mp4',
+        type: 'video/mp4'
+      },
+      {
+        src: 'LaJolla.mp4',
+        type: 'video/webm;codecs="vp8, vorbis"'
       }
-    });
-  }());
+    ],
+
+    onLoad: function () {
+      document.querySelector('#video_cover').style.display = 'none';
+    }
+  });
+}());
