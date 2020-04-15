@@ -15,14 +15,14 @@
     playButton: document.querySelector('#play'),
     pauseButton: document.querySelector('#pause'),
 
-    
+
     src: [
       {
-        src: 'LaJolla.mp4',
+        src: "/mp4",
         type: 'video/mp4'
       },
       {
-        src: 'LaJolla.mp4',
+        src: "/mp4",
         type: 'video/webm;codecs="vp8, vorbis"'
       }
     ],

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Housing Values in San Diego County</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='./css/style.css')}}">
   
 </head>
 
@@ -43,7 +43,7 @@
     </div>
     <nav class="navbar fixed-bottom">
       <div class="navbar-nav navbar-right">
-        <img src="/Resources/sandiegocounty.PNG" id = "countyimg" alt="San Diego County Map" class = "responsive">
+        <img src="{{url_for('static', filename='./media/sandiegocounty.PNG')}}" id = "countyimg" alt="San Diego County Map" class = "responsive">
       </div>
   </nav>
 </div>
@@ -60,12 +60,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://d3js.org/d3.v4.js"></script>
-  <script src="lollipop.js"></script>
-  <script src="config.js"></script>
-  <script src="choropleth.js"></script>
-  <script src="choroplethlogic.js"></script>
-  <script src="bideo.js"></script>
-  <script src="main.js"></script>
+  <script src="{{url_for('static', filename='./js/lollipop.js')}}"></script>
+  <script src="{{url_for('static', filename='./js/config.js')}}"></script>
+  <script src="{{url_for('static', filename='./js/chloropleth.js')}}"></script>
+  <script src="{{url_for('static', filename='./js/chloroplethlogic.js')}}"></script>
+  <script src="{{url_for('static', filename='./js/bideo.js')}}"></script>
+  <script src="{{url_for('static', filename='./js/main.js')}}"></script>
   
 
 </body>
