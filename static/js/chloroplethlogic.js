@@ -208,7 +208,7 @@ var overlayMaps = {
 
 // Create map object and set default layers
 var myMap = L.map("map", {
-  center: [32.7157, -117.1611],
+  center: [33.2559, -116.3750],
   zoom: 6,
   layers: [light, cityLayer]
 });
