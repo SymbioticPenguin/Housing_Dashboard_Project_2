@@ -17,10 +17,17 @@ svg.append("rect")
 .attr("height","100%")
 .attr("fill","white");
      
+
+
+
+// function buidLolli(city){
+
+  
 // Parse the Data
-d3.csv("Resources/Zillow_SD_data.csv", function(data) {
-
-
+// d3.csv("Resources/Zillow_SD_data.csv", function(data) {
+d3.json("/zillow", function(data) {
+var cityData = data.map(d => {return d.San_Diego})
+console.log(cityData)
 
 // X axis
 var x = d3.scaleBand()
@@ -63,3 +70,21 @@ svg.selectAll("mycircle")
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
 })
+
+
+
+// }d3.json("samples.json").then((importedData) => {
+//   var names = importedData.names
+//   var tselect = d3.select("#selDataset");
+//  // console.log(tselect)
+ 
+//  for (var i = 0; i < names.length; i++) {
+//     tselect.append("option").property("value",names[i]).text(names[i]);
+    
+//  }
+// var firstSample = names[0];
+
+
+// buildChart(firstSample);
+// buildMetadata(firstSample);
+// })
