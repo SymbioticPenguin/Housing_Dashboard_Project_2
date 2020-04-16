@@ -154,14 +154,19 @@
     float: right;
   }
   /* to put map on bottom right of main screen */
-.responsive {
+/* .responsive {
   top:0;
   left: unset;
   position: absolute;
   bottom: 0;
   right: 0;
-}
+} */
 #map {
-  width: 600px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
+  top:unset;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  right: unset;
 }
