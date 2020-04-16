@@ -17,9 +17,15 @@ svg.append("rect")
 .attr("height","100%")
 .attr("fill","white");
 
+svg.append("text")
+.attr("x",width/4-40)
+.attr("y",50)
+.attr("font-size", "17px")
+.text("Average Home Value in San Diego from 2004 to 2019");
 
 
-// function buidLolli(city){
+
+function buildLolli(){
 
   
 // Parse the Data
@@ -73,6 +79,21 @@ svg.selectAll("mycircle")
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
 })
+}
+
+
+function update_chart(selection){
+  svg.selectAll("myLine")
+  .attr("y1", function(d) {return y(d[selection])});
+  svg.selectAll("mycircle")
+  .attr("cy",function(d){return y(d[selection])});
+  svg.selectAll("text")
+  .text(`Average Home Value in ${selection.replace("_"," ")} from 2004 to 2019`)
+}
+
+buildLolli();
+
+d3.select("#selDataset").on("change", update_chart);
 
 
 // svg.selectAll("mycirlce")
