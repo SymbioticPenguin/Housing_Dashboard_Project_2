@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 90, left: 40},
-    width = 460 - margin.left - margin.right,
+var margin = {top: 10, right: 30, bottom: 90, left: 90},
+    width = 650 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -10,35 +10,41 @@ var svg = d3.select("#lollipop")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          `translate(${margin.left},${margin.top})`);
 
 svg.append("rect")
 .attr("width","100%")
 .attr("height","100%")
 .attr("fill","white");
-     
+
+svg.append("text")
+.attr("x",width/4-40)
+.attr("y",50)
+.attr("font-size", "17px")
+.text("Average Home Value in San Diego from 2004 to 2019");
 
 
 
-// function buidLolli(city){
+function buildLolli(){
 
   
 // Parse the Data
 // d3.csv("Resources/Zillow_SD_data.csv", function(data) {
 d3.json("/zillow", function(data) {
-var cityData = data.map(d => {return d.San_Diego})
-console.log(cityData)
+var cityData = data.map(d => {return d["San_Diego"]})
+console.log(cityData);
+
 
 // X axis
 var x = d3.scaleBand()
-  .range([ 0, width+40 ])
+  .range([ 0, width - 60 ])
   .domain(data.map(function(d) { return d.Year;}))
   .padding(1);
 svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", `translate(60,${height+30})`)
   .call(d3.axisBottom(x))
   .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
+    .attr("transform", "translate(-10,10)rotate(-45)")
     .style("text-anchor", "end");
 
 // Add Y axis
@@ -46,6 +52,7 @@ var y = d3.scaleLinear()
   .domain([0, 1000000])
   .range([ height, 0]);
 svg.append("g")
+  .attr("transform","translate(60,30)")
   .call(d3.axisLeft(y));
 
 // Lines
@@ -53,6 +60,7 @@ svg.selectAll("myline")
   .data(data)
   .enter()
   .append("line")
+    .attr("transform","translate(60,30)")
     .attr("x1", function(d) { return x(d.Year); })
     .attr("x2", function(d) { return x(d.Year); })
     .attr("y1", function(d) { return y(d["San_Diego"]); })
@@ -64,14 +72,32 @@ svg.selectAll("mycircle")
   .data(data)
   .enter()
   .append("circle")
+    .attr("transform","translate(60,30)")
     .attr("cx", function(d) { return x(d.Year); })
     .attr("cy", function(d) { return y(d["San_Diego"]); })
     .attr("r", "4")
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
 })
+}
 
 
+function update_chart(selection){
+  svg.selectAll("myLine")
+  .attr("y1", function(d) {return y(d[selection])});
+  svg.selectAll("mycircle")
+  .attr("cy",function(d){return y(d[selection])});
+  svg.selectAll("text")
+  .text(`Average Home Value in ${selection.replace("_"," ")} from 2004 to 2019`)
+}
+
+buildLolli();
+
+d3.select("#selDataset").on("change", update_chart);
+
+
+// svg.selectAll("mycirlce")
+// .attr("cy", function(d) {return y(d[dropdown_input])})
 
 // }d3.json("samples.json").then((importedData) => {
 //   var names = importedData.names
