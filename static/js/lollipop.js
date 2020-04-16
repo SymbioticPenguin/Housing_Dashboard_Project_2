@@ -22,7 +22,7 @@ svg.append("text")
 .attr("y",50)
 .attr("font-size", "17px")
 .text("Average Home Value in San Diego from 2004 to 2019");
-
+var y;
 
 
 function buildLolli(){
@@ -48,7 +48,7 @@ svg.append("g")
     .style("text-anchor", "end");
 
 // Add Y axis
-var y = d3.scaleLinear()
+y = d3.scaleLinear()
   .domain([0, 1000000])
   .range([ height, 0]);
 svg.append("g")
@@ -83,17 +83,26 @@ svg.selectAll("mycircle")
 
 
 function update_chart(selection){
-  svg.selectAll("myLine")
-  .attr("y1", function(d) {return y(d[selection])});
-  svg.selectAll("mycircle")
-  .attr("cy",function(d){return y(d[selection])});
-  svg.selectAll("text")
+  d3.json("/zillow", function(data) {
+    // city_data = []
+    // for(var i = 0; i < data.length; i++){
+    //   // console.log(data[i][selection])
+    //   city_data.push(data[i][selection]);
+    // }
+    // console.log(city_data);
+    console.log(data.selection)
+  svg.selectAll("line")
+  .attr("y1", d => y(d[selection]));
+  svg.selectAll("circle")
+  .attr("cy",d => y(d[selection]));
+  svg.select("text")
   .text(`Average Home Value in ${selection.replace("_"," ")} from 2004 to 2019`)
+})
 }
 
 buildLolli();
 
-d3.select("#selDataset").on("change", update_chart);
+d3.select("#selDataset").on("change", update_chart(this.value));
 
 
 // svg.selectAll("mycirlce")
