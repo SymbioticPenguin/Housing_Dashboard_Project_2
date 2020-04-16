@@ -29,23 +29,66 @@
       <div class="col-md-2">
         <div class="well">
           <h5> City:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <select id="selDataset" onchange="optionChanged(this.value)">
+            <option value="San_Diego">San Diego</option>
+            <option value="Chula_Vista">Chula Vista</option>
+            <option value="Oceanside">Oceanside</option>
+            <option value="Escondido">Escondido</option>
+            <option value="El_Cajon">El Cajon</option>
+            <option value="Vista">Vista</option>
+            <option value="Carlsbad">Carlsbad</option>
+            <option value="San_Marcos">San Marcos</option>
+            <option value="Spring_Valley">Spring Valley</option>
+            <option value="La_Mesa">La Mesa</option>
+            <option value="Encinitas">Encinitas</option>
+            <option value="National_City">National City</option>
+            <option value="Santee">Santee</option>
+            <option value="Poway">Poway</option>
+            <option value="Fallbrook">Fallbrook</option>
+            <option value="Lakeside">Lakeside</option>
+            <option value="Ramona">Ramona</option>
+            <option value="Imperial_Beach">Imperial Beach</option>
+            <option value="Lemon_Grove">Lemon Grove</option>
+            <option value="Coronado">Coronado</option>
+            <option value="Valley_Center">Valley Center</option>
+            <option value="Alpine">Alpine</option>
+            <option value="Bonita">Bonita</option>
+            <option value="Solana_Beach">Solana Beach</option>
+            <option value="Jamul">Jamul</option>
+            <option value="Rancho_Santa_Fe">Rancho Santa Fe</option>
+            <option value="Bonsall">Bonsall</option>
+            <option value="Descanso">Descanso</option>
+            <option value="Campo">Campo</option>
+            <option value="Del_Mar">Del Mar</option>
+            <option value="Dulzura">Dulzura</option>
+            <option value="Julian">Julian</option>
+            <option value="Borrego_Springs">Borrego Springs</option>
+            <option value="Pauma_Valley">Pauma Valley</option>
+            <option value="Warner_Springs">Warner Springs</option>
+            <option value="Pala">Pala</option>
+            <option value="Santa_Ysabel">Santa Ysabel</option>
+            <option value="Boulevard">Boulevard</option>
+            <option value="Pine_Valley">Pine Valley</option>
+            <option value="Potrero">Potrero</option>
+            <option value="Palomar_Mountain">Palomar Mountain</option>
+          </select>
         </div>
-      <div class="col-md-5">
-        <div id="scatter"></div>
       </div>
-      <!-- <div class="col-md-5">
-        <div id="lollipop"></div>
+      <!-- <div class="col-md-3">
+        <div id="scatter"></div>
       </div> -->
-      <div class="col-md-5">
+      <div class="col-md-10">
         <div id="map"></div>
       </div>
+      <div class="col-md-10">
+        <div id="lollipop"></div>
+      </div>
     </div>
-    <nav class="navbar fixed-bottom">
+    <!-- <nav class="navbar fixed-bottom">
       <div class="navbar-nav navbar-right">
         <img src="{{url_for('static', filename='./media/sandiegocounty.PNG')}}" id = "countyimg" alt="San Diego County Map" class = "responsive">
       </div>
-  </nav>
+  </nav> -->
 </div>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
