@@ -1,17 +1,22 @@
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
+var margin = {top: 20, right: 30, bottom: 30, left: 50},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#scatter_line")
+var svg2 = d3.select("#scatterline")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+
+          svg2.append("rect")
+          .attr("width", "100%")
+          .attr("height", height + 40)
+          .attr("fill","white");
 
 //Read the data
 d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/connectedscatter.csv",
@@ -28,7 +33,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
     var x = d3.scaleTime()
       .domain(d3.extent(data, function(d) { return d.date; }))
       .range([ 0, width ]);
-    svg.append("g")
+    svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
@@ -36,12 +41,14 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
     var y = d3.scaleLinear()
       .domain( [8000, 9200])
       .range([ height, 0 ]);
-    svg.append("g")
+    svg2.append("g")
+      .attr("transform","translate(35,5)")
       .call(d3.axisLeft(y));
 
     // Add the line
-    svg.append("path")
+    svg2.append("path")
       .datum(data)
+      .attr("transform","translate(30,0)")
       .attr("fill", "none")
       .attr("stroke", "black")
       .attr("stroke-width", 1.5)
@@ -52,8 +59,9 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
         )
 
     // create a tooltip
-    var Tooltip = d3.select("#scatter_line")
+    var Tooltip = d3.select("#scatterline")
       .append("div")
+      .attr("transform","translate(35,5)")
       .style("opacity", 0)
       .attr("class", "tooltip")
       .style("background-color", "white")
@@ -79,7 +87,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
       }
 
     // Add the points
-    svg
+    svg2
       .append("g")
       .selectAll("dot")
       .data(data)

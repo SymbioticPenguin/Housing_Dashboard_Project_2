@@ -162,11 +162,11 @@
   right: 0;
 } */
 #map {
-  width: 300px;
-  height: 200px;
+  width: 580px;
+  height: 380px;
   top:unset;
-  left: 0;
-  position: absolute;
+  left: 0px;
+  position: relative;
   bottom: 0;
-  right: unset;
+  right: 0;
 }

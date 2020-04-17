@@ -13,8 +13,8 @@ var svg = d3.select("#lollipop")
           `translate(${margin.left},${margin.top})`);
 
 svg.append("rect")
-.attr("width","100%")
-.attr("height","100%")
+.attr("width","80%")
+.attr("height","90%")
 .attr("fill","white");
 
 svg.append("text")

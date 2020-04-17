@@ -1,5 +1,5 @@
 var map = L.map('map', {
-    minZoom: 0,
+    minZoom: 10,
     maxZoom: 0
 });
 var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
