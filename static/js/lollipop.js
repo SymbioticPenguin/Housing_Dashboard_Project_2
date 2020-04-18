@@ -49,7 +49,7 @@ svg.append("g")
 
 // Add Y axis
 y = d3.scaleLinear()
-  .domain([0, 1000000])
+  .domain([0, 3000000])
   .range([ height, 0]);
 svg.append("g")
   .attr("transform","translate(60,30)")
