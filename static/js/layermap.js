@@ -234,7 +234,7 @@ function updateMap(cityName)
                 break;
             }
         }
-        myMap.setView(latLngs, 12);
+        myMap.flyTo(latLngs, 12);
     }
 //get data from update chart and use it to run update chart method
 d3.select("#selDataset").on("change", updateMap(this.value));

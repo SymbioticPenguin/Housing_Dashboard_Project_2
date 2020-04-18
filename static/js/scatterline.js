@@ -15,12 +15,11 @@ var svg2 = d3.select("#scatterline")
           .attr("height", height + 40)
           .attr("fill","white");
 
-svg2.append("text")
-.attr("x",width/4-40)
-.attr("y",50)
-.attr("font-size", "14px")
-.text("Home Value in San Diego County from 2004 to 2019");
-
+          svg2.append("text")
+          .attr("x",width/4-40)
+          .attr("y",50)
+          .attr("font-size", "12px")
+          .text("Average Home Value in San Diego County from 2004 to 2019");
 
 function buildScatter(){
 //Read the data
