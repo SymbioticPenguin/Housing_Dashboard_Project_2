@@ -163,7 +163,8 @@
 } */
 #map {
   width: 580px;
-  height: 380px;
+  height: 400px;
+  opacity: 90%;
   top:unset;
   left: 0px;
   position: relative;
