@@ -215,6 +215,30 @@ var myMap = L.map("map", {
 
 });
 
+function updateMap(cityName)
+{
+    console.log(cityName);
+    //take city name and update the map
+    var latLngs = [];
+        //loop through city array to find city name and spit out the latitude and longitude
+        for(let i = 0; i < cities.length; i++)
+        {
+            //get the actual city name so when compare to name in array, it will have an easier time comparing
+            var cityActual = cityName.replace("_"," ");
+            // if the city name is in the array
+            if(cityActual === cities[i].name)
+            {
+                //set the latitude and longitude to that of the city
+                latLngs = cities[i].location;
+                //break out once find city
+                break;
+            }
+        }
+        myMap.setView(latLngs, 12);
+    }
+//get data from update chart and use it to run update chart method
+d3.select("#selDataset").on("change", updateMap(this.value));
+
 
 // Pass our map layers into our layer control
 // Add the layer control to the map
