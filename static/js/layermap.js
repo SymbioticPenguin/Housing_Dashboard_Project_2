@@ -224,7 +224,8 @@ function updateMap(cityName)
         for(let i = 0; i < cities.length; i++)
         {
             //get the actual city name so when compare to name in array, it will have an easier time comparing
-            var cityActual = cityName.replace("_"," ");
+            // var cityActual = cityName.replace("_"," ",);
+            var cityActual = cityName.replace(/_/g," ");
             // if the city name is in the array
             if(cityActual === cities[i].name)
             {
