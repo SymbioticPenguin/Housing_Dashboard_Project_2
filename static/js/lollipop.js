@@ -96,7 +96,7 @@ function update_chart(selection){
   svg.selectAll("circle")
   .attr("cy",d => y(d[selection]));
   svg.select("text")
-  .text(`Average Home Value in ${selection.replace("_"," ")} from 2004 to 2019`)
+  .text(`Average Home Value in ${selection.replace(/_/g," ")} from 2004 to 2019`)
 })
 }
 
