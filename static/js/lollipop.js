@@ -37,7 +37,7 @@ console.log(cityData);
 
 // X axis
 var x = d3.scaleBand()
-  .range([ 0, width - 60 ])
+  .range([ 0, width + 60 ])
   .domain(data.map(function(d) { return d.Year;}))
   .padding(1);
 svg.append("g")
@@ -90,7 +90,7 @@ function update_chart(selection){
     //   city_data.push(data[i][selection]);
     // }
     // console.log(city_data);
-    console.log(data.selection)
+    // console.log(data.selection)
   svg.selectAll("line")
   .attr("y1", d => y(d[selection]));
   svg.selectAll("circle")
