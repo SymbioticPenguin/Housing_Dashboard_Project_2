@@ -1,36 +1,28 @@
 (function (global) {
 
-  // Define Bideo constructor on the global object
+  // Define Bideo 
   global.Bideo = function () {
 
-    // Plugin options
+    
     this.opt = null;
-    // The Video element
+    
     this.videoEl = null;
 
-    // Approximate Loading Rate
-    //
-    // The value will be a number like 0.8
-    // which means to load 4 seconds of the video
-    // it takes 5 seconds. If the number is super low
-    // like 0.2 (regular 3g connections) then you can
-    // decide whether to play the video or not.
-    // This behaviour will be controller with
-    // the `acceptableLoadingRate` option.
+    
     this.approxLoadingRate = null;
 
     // Methods to which `this` will be bound
     this._resize = null;
     this._progress = null;
 
-    // Time at which video is initialized
+   
     this.startTime = null;
 
     this.onLoadCalled = false;
 
-    // Initialize and setup the video in DOM`
+   
     this.init = function (opt) {
-      // If not set then set to an empty object
+      
       this.opt = opt = opt || {};
 
       var self = this;
